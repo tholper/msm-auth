@@ -1,0 +1,29 @@
+<h1>
+  Add a new bookmark
+</h1>
+
+
+<hr>
+
+<form action="/create_bookmark" method="post">
+
+  <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+  <div class="form-group">
+    <label for="movie_id">
+      Movie
+    </label>
+
+    <%= select_tag("movie_id", options_from_collection_for_select(Movie.all, :id, :title, @bookmark.id), :class => "form-control") %>
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create bookmark
+  </button>
+</form>
+
+<hr>
+
+<a href="/bookmarks">
+  Go back
+</a>
